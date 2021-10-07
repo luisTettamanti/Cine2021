@@ -36,6 +36,19 @@ Public Class Actores
         Cerrar()
     End Sub
 
+    Public Sub Mostrar(ByVal grilla As DataGridView, ByVal busqueda As String)
+        Abrir()
+        Dim strComando As String = "SELECT * FROM actores WHERE nombre LIKE @busqueda"
+        Dim mysqlComando As New MySqlCommand(strComando, conexion)
+        mysqlComando.Parameters.AddWithValue("@busqueda", "%" + busqueda + "%")
+        Dim tabla As New DataTable
+        tabla.Load(mysqlComando.ExecuteReader)
+        grilla.DataSource = tabla
+        grilla.Columns("id").Width = 50
+        grilla.Columns("nombre").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Cerrar()
+    End Sub
+
     Public Sub Agregar(ByVal actor As Actores)
         Abrir()
         Dim strComando As String = "INSERT INTO Actores (nombre) VALUES (@nombre)"

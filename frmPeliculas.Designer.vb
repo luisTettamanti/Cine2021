@@ -22,7 +22,7 @@ Partial Class frmPeliculas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Me.txtId = New System.Windows.Forms.TextBox
         Me.txtNombre = New System.Windows.Forms.TextBox
         Me.txtDuracion = New System.Windows.Forms.TextBox
@@ -194,7 +194,6 @@ Partial Class frmPeliculas
         '
         'btnAgregarActor
         '
-        Me.btnAgregarActor.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnAgregarActor.Location = New System.Drawing.Point(380, 195)
         Me.btnAgregarActor.Name = "btnAgregarActor"
         Me.btnAgregarActor.Size = New System.Drawing.Size(77, 23)
@@ -204,7 +203,6 @@ Partial Class frmPeliculas
         '
         'btnBorrarActor
         '
-        Me.btnBorrarActor.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnBorrarActor.Location = New System.Drawing.Point(381, 224)
         Me.btnBorrarActor.Name = "btnBorrarActor"
         Me.btnBorrarActor.Size = New System.Drawing.Size(77, 23)
@@ -215,8 +213,8 @@ Partial Class frmPeliculas
         'dgvActores
         '
         Me.dgvActores.AllowUserToAddRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.dgvActores.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.dgvActores.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvActores.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dgvActores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -254,7 +252,9 @@ Partial Class frmPeliculas
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.txtId)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(485, 600)
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(485, 389)
         Me.Name = "frmPeliculas"
         Me.Text = "Peliculas"
         CType(Me.dgvActores, System.ComponentModel.ISupportInitialize).EndInit()

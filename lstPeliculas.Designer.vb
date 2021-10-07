@@ -22,30 +22,31 @@ Partial Class lstPeliculas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Me.dgvPeliculas = New System.Windows.Forms.DataGridView
         Me.btnAgregar = New System.Windows.Forms.Button
         Me.btnModificar = New System.Windows.Forms.Button
         Me.btnBorrar = New System.Windows.Forms.Button
         Me.btnSalir = New System.Windows.Forms.Button
+        Me.txtBusqueda = New System.Windows.Forms.TextBox
         CType(Me.dgvPeliculas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvPeliculas
         '
         Me.dgvPeliculas.AllowUserToAddRows = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.dgvPeliculas.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.dgvPeliculas.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvPeliculas.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvPeliculas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPeliculas.Location = New System.Drawing.Point(12, 12)
+        Me.dgvPeliculas.Location = New System.Drawing.Point(12, 38)
         Me.dgvPeliculas.Name = "dgvPeliculas"
         Me.dgvPeliculas.ReadOnly = True
         Me.dgvPeliculas.RowHeadersVisible = False
         Me.dgvPeliculas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvPeliculas.Size = New System.Drawing.Size(554, 393)
+        Me.dgvPeliculas.Size = New System.Drawing.Size(554, 367)
         Me.dgvPeliculas.TabIndex = 0
         '
         'btnAgregar
@@ -88,22 +89,33 @@ Partial Class lstPeliculas
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
+        'txtBusqueda
+        '
+        Me.txtBusqueda.Location = New System.Drawing.Point(12, 12)
+        Me.txtBusqueda.Name = "txtBusqueda"
+        Me.txtBusqueda.Size = New System.Drawing.Size(554, 20)
+        Me.txtBusqueda.TabIndex = 5
+        '
         'lstPeliculas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(578, 446)
+        Me.Controls.Add(Me.txtBusqueda)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnBorrar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.dgvPeliculas)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(594, 600)
         Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(594, 485)
         Me.Name = "lstPeliculas"
         Me.Text = "Películas"
         CType(Me.dgvPeliculas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents dgvPeliculas As System.Windows.Forms.DataGridView
@@ -111,4 +123,5 @@ Partial Class lstPeliculas
     Friend WithEvents btnModificar As System.Windows.Forms.Button
     Friend WithEvents btnBorrar As System.Windows.Forms.Button
     Friend WithEvents btnSalir As System.Windows.Forms.Button
+    Friend WithEvents txtBusqueda As System.Windows.Forms.TextBox
 End Class

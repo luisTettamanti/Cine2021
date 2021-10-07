@@ -1,7 +1,7 @@
 ﻿Public Class frmActores
 
     Private modo_ As String
-    Private selActor_ As Actores
+    Private selActor_ As New Actores
 
     Public WriteOnly Property modo() As String
         Set(ByVal value As String)
@@ -16,6 +16,7 @@
     End Property
 
     Dim actor As New Actores
+    Dim ap As New ActoresPelicula
 
     Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelar.Click
         Close()
@@ -33,8 +34,9 @@
         Close()
     End Sub
 
-    Private Sub frmPeliculas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmActores_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Text = modo_ + " Actor"
+        ap.MostrarPeliculas(dgvPeliculas, selActor_.id)
 
         If modo_ = "Modificar" Then
             txtId.Text = selActor_.id

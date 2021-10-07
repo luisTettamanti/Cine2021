@@ -22,7 +22,7 @@ Partial Class lstCategorias
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Me.btnSalir = New System.Windows.Forms.Button
         Me.btnBorrar = New System.Windows.Forms.Button
         Me.btnModificar = New System.Windows.Forms.Button
@@ -74,8 +74,8 @@ Partial Class lstCategorias
         'dgvCategorias
         '
         Me.dgvCategorias.AllowUserToAddRows = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.dgvCategorias.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.dgvCategorias.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvCategorias.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -98,6 +98,7 @@ Partial Class lstCategorias
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.dgvCategorias)
+        Me.MaximumSize = New System.Drawing.Size(451, 600)
         Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(451, 485)
         Me.Name = "lstCategorias"

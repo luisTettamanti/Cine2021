@@ -6,7 +6,7 @@ Public Class Peliculas
     Private id_ As Integer
     Private nombre_ As String
     Private anio_ As Integer
-    Private duracion_ As Decimal
+    Private duracion_ As Integer
     Private categoria_ As String
     Private idDirector_ As Integer
     Private IMDB_ As Decimal
@@ -86,12 +86,34 @@ Public Class Peliculas
 
     Public Sub Mostrar(ByVal grilla As DataGridView)
         Abrir()
-        'Dim strComando As String = "SELECT p.id,p.anio,p.duracion,p.idcategoria,p.iddirector,p.imdb,p.nombre,c.nombre as 'categoria' FROM peliculas p inner join categorias c on p.idCategoria=c.id"
         Dim strComando As String = "SELECT p.id, p.anio, p.duracion, p.idCategoria, p.idDirector, p.IMDB, p.nombre, c.nombre categoria, d.nombre director " & _
         "FROM peliculas p " & _
         "INNER JOIN categorias c ON c.id=p.idCategoria " & _
         "INNER JOIN directores d ON d.id=p.idDirector"
         Dim mysqlComando As New MySqlCommand(strComando, conexion)
+        Dim tabla As New DataTable
+        tabla.Load(mysqlComando.ExecuteReader)
+        grilla.DataSource = tabla
+        grilla.Columns("duracion").Visible = False
+        grilla.Columns("idCategoria").Visible = False
+        grilla.Columns("idDirector").Visible = False
+        grilla.Columns("IMDB").Visible = False
+        grilla.Columns("id").Width = 50
+        grilla.Columns("anio").Width = 50
+        grilla.Columns("nombre").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        grilla.Columns("director").Width = 150
+        Cerrar()
+    End Sub
+
+    Public Sub Mostrar(ByVal grilla As DataGridView, ByVal busqueda As String)
+        Abrir()
+        Dim strComando As String = "SELECT p.id, p.anio, p.duracion, p.idCategoria, p.idDirector, p.IMDB, p.nombre, c.nombre categoria, d.nombre director " & _
+        "FROM peliculas p " & _
+        "INNER JOIN categorias c ON c.id=p.idCategoria " & _
+        "INNER JOIN directores d ON d.id=p.idDirector " & _
+        "WHERE UCASE(p.nombre) LIKE UCASE(@busqueda)"
+        Dim mysqlComando As New MySqlCommand(strComando, conexion)
+        mysqlComando.Parameters.AddWithValue("@busqueda", "%" + busqueda + "%")
         Dim tabla As New DataTable
         tabla.Load(mysqlComando.ExecuteReader)
         grilla.DataSource = tabla

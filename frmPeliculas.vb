@@ -1,7 +1,7 @@
 ﻿Public Class frmPeliculas
 
     Private modo_ As String
-    Private selPelicula_ As Peliculas
+    Private selPelicula_ As New Peliculas
 
     Public WriteOnly Property modo() As String
         Set(ByVal value As String)
@@ -26,7 +26,6 @@
         pelicula.anio = txtAnio.Text
         pelicula.duracion = txtDuracion.Text
         pelicula.idCategoria = cmbCategoria.SelectedValue
-        'pelicula.idDirector = txtIddirector.Text
         pelicula.idDirector = cmbDirector.SelectedValue
         pelicula.IMDB = txtIMDB.Text
         pelicula.nombre = txtNombre.Text
@@ -41,20 +40,20 @@
     End Sub
 
     Private Sub frmPeliculas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        ap.Mostrar(dgvActores, selPelicula_.id)
+        cmbCategoria.SelectedValue = selPelicula_.idCategoria
         Text = modo_ + " Película"
         pelicula.CargarComboCategoriasReader(cmbCategoria, selPelicula_.idCategoria)
         pelicula.CargarComboDirectores(cmbDirector, selPelicula_.idDirector)
 
         If modo_ = "Modificar" Then
+            ap.MostrarActores(dgvActores, selPelicula_.id)
             txtId.Text = selPelicula_.id
             txtNombre.Text = selPelicula_.nombre
             txtAnio.Text = selPelicula_.anio
             txtDuracion.Text = selPelicula_.duracion
-            'txtIddirector.Text = selPelicula_.idDirector
+            cmbCategoria.SelectedValue = selPelicula_.idCategoria
             cmbDirector.SelectedValue = selPelicula_.idDirector
             txtIMDB.Text = selPelicula_.IMDB
-            cmbCategoria.SelectedValue = selPelicula_.idCategoria
         End If
 
     End Sub
@@ -65,7 +64,7 @@
         lstActores.ShowDialog()
         If lstActores.actorSel > 0 Then
             ap.Agregar(lstActores.actorSel, txtId.Text)
-            ap.Mostrar(dgvActores, selPelicula_.id)
+            ap.MostrarActores(dgvActores, selPelicula_.id)
         End If
     End Sub
 
@@ -73,6 +72,6 @@
         Dim idActorPelicula As Integer
         idActorPelicula = dgvActores.Item("id", dgvActores.CurrentRow.Index).Value
         ap.Borrar(idActorPelicula)
-        ap.Mostrar(dgvActores, selPelicula_.id)
+        ap.MostrarActores(dgvActores, selPelicula_.id)
     End Sub
 End Class

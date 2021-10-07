@@ -25,12 +25,28 @@ Public Class ActoresPelicula
         End Set
     End Property
 
-    Public Sub Mostrar(ByVal grilla As DataGridView, ByVal idPelicula As Integer)
+    Public Sub MostrarActores(ByVal grilla As DataGridView, ByVal idPelicula As Integer)
         Abrir()
         Dim strComando As String = "SELECT ap.id,ap.idpelicula,ap.idactor,a.nombre FROM actorespelicula ap " & _
         "INNER JOIN actores a ON ap.idactor = a.id WHERE idpelicula=@idPelicula"
         Dim mysqlComando As New MySqlCommand(strComando, conexion)
         mysqlComando.Parameters.AddWithValue("@idPelicula", idPelicula)
+        Dim tabla As New DataTable
+        tabla.Load(mysqlComando.ExecuteReader)
+        grilla.DataSource = tabla
+        grilla.Columns("idPelicula").Visible = False
+        grilla.Columns("idActor").Visible = False
+        grilla.Columns("id").Width = 50
+        grilla.Columns("nombre").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Cerrar()
+    End Sub
+
+    Public Sub MostrarPeliculas(ByVal grilla As DataGridView, ByVal idActor As Integer)
+        Abrir()
+        Dim strComando As String = "SELECT ap.id,ap.idpelicula,ap.idactor,p.nombre FROM actorespelicula ap " & _
+        "INNER JOIN Peliculas p ON p.id = ap.idPelicula WHERE idActor=@idActor"
+        Dim mysqlComando As New MySqlCommand(strComando, conexion)
+        mysqlComando.Parameters.AddWithValue("@idActor", idActor)
         Dim tabla As New DataTable
         tabla.Load(mysqlComando.ExecuteReader)
         grilla.DataSource = tabla

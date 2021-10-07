@@ -22,15 +22,16 @@ Partial Class frmActores
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Me.btnCancelar = New System.Windows.Forms.Button
         Me.btnAceptar = New System.Windows.Forms.Button
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
         Me.txtNombre = New System.Windows.Forms.TextBox
         Me.txtId = New System.Windows.Forms.TextBox
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView
         Me.Label3 = New System.Windows.Forms.Label
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.dgvPeliculas = New System.Windows.Forms.DataGridView
+        CType(Me.dgvPeliculas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnCancelar
@@ -85,14 +86,6 @@ Partial Class frmActores
         Me.txtId.Size = New System.Drawing.Size(100, 20)
         Me.txtId.TabIndex = 35
         '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(23, 90)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(288, 195)
-        Me.DataGridView1.TabIndex = 40
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -102,13 +95,29 @@ Partial Class frmActores
         Me.Label3.TabIndex = 41
         Me.Label3.Text = "Películas"
         '
+        'dgvPeliculas
+        '
+        Me.dgvPeliculas.AllowUserToAddRows = False
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.dgvPeliculas.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvPeliculas.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.dgvPeliculas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvPeliculas.Location = New System.Drawing.Point(23, 90)
+        Me.dgvPeliculas.Name = "dgvPeliculas"
+        Me.dgvPeliculas.ReadOnly = True
+        Me.dgvPeliculas.RowHeadersVisible = False
+        Me.dgvPeliculas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvPeliculas.Size = New System.Drawing.Size(288, 195)
+        Me.dgvPeliculas.TabIndex = 44
+        '
         'frmActores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(331, 326)
+        Me.ClientSize = New System.Drawing.Size(335, 326)
+        Me.Controls.Add(Me.dgvPeliculas)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.btnAceptar)
         Me.Controls.Add(Me.Label2)
@@ -120,7 +129,7 @@ Partial Class frmActores
         Me.MinimizeBox = False
         Me.Name = "frmActores"
         Me.Text = "Actores"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvPeliculas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -131,6 +140,6 @@ Partial Class frmActores
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txtNombre As System.Windows.Forms.TextBox
     Friend WithEvents txtId As System.Windows.Forms.TextBox
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents dgvPeliculas As System.Windows.Forms.DataGridView
 End Class

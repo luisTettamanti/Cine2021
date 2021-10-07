@@ -48,4 +48,8 @@
     Private Sub dgvPeliculas_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvPeliculas.CellDoubleClick
         Modificar()
     End Sub
+
+    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtBusqueda.TextChanged
+        pelicula.Mostrar(dgvPeliculas, txtBusqueda.Text)
+    End Sub
 End Class

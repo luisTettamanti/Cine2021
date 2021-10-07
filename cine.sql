@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 01-09-2021 a las 15:26:03
+-- Tiempo de generación: 08-09-2021 a las 14:32:10
 -- Versión del servidor: 5.7.21
 -- Versión de PHP: 5.6.35
 
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `actorespelicula` (
   PRIMARY KEY (`id`),
   KEY `idactor` (`idactor`),
   KEY `idpelicula` (`idpelicula`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `actorespelicula`
@@ -97,7 +97,28 @@ INSERT INTO `actorespelicula` (`id`, `idactor`, `idpelicula`) VALUES
 (6, 6, 2),
 (9, 7, 4),
 (10, 8, 4),
-(11, 9, 4);
+(11, 9, 4),
+(16, 5, 5),
+(17, 10, 5),
+(18, 11, 5),
+(19, 12, 8),
+(20, 13, 8),
+(21, 14, 8),
+(22, 13, 9),
+(23, 15, 9),
+(24, 16, 9),
+(25, 17, 10),
+(26, 18, 10),
+(27, 19, 10),
+(28, 20, 11),
+(29, 21, 11),
+(30, 22, 11),
+(31, 23, 12),
+(32, 24, 12),
+(33, 22, 12),
+(34, 25, 13),
+(35, 26, 13),
+(36, 27, 13);
 
 -- --------------------------------------------------------
 
@@ -177,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `peliculas` (
 --
 
 INSERT INTO `peliculas` (`id`, `nombre`, `anio`, `duracion`, `idDirector`, `IMDB`, `idCategoria`) VALUES
-(1, 'Parasite', 2019, '132', 1, '9', 1),
+(1, 'Parasite', 2019, '132', 1, '9', 3),
 (2, 'Green Book', 2018, '130', 2, '8', 2),
 (4, 'La forma del agua', 2017, '123', 3, '7', 3),
 (5, 'Moonlight', 2016, '111', 4, '7', 1),

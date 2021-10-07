@@ -74,4 +74,8 @@
         actorSel_ = dgvActores.Item("id", dgvActores.CurrentRow.Index).Value
         Close()
     End Sub
+
+    Private Sub txtBusqueda_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtBusqueda.TextChanged
+        actor.Mostrar(dgvActores, txtBusqueda.Text)
+    End Sub
 End Class

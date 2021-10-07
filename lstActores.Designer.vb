@@ -22,13 +22,14 @@ Partial Class lstActores
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Me.btnSalir = New System.Windows.Forms.Button
         Me.btnBorrar = New System.Windows.Forms.Button
         Me.btnModificar = New System.Windows.Forms.Button
         Me.btnAgregar = New System.Windows.Forms.Button
         Me.dgvActores = New System.Windows.Forms.DataGridView
         Me.btnSeleccionar = New System.Windows.Forms.Button
+        Me.txtBusqueda = New System.Windows.Forms.TextBox
         CType(Me.dgvActores, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -75,24 +76,23 @@ Partial Class lstActores
         'dgvActores
         '
         Me.dgvActores.AllowUserToAddRows = False
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.dgvActores.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.dgvActores.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvActores.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvActores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvActores.Location = New System.Drawing.Point(12, 12)
+        Me.dgvActores.Location = New System.Drawing.Point(12, 38)
         Me.dgvActores.Name = "dgvActores"
         Me.dgvActores.ReadOnly = True
         Me.dgvActores.RowHeadersVisible = False
         Me.dgvActores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvActores.Size = New System.Drawing.Size(411, 369)
+        Me.dgvActores.Size = New System.Drawing.Size(411, 343)
         Me.dgvActores.TabIndex = 10
         '
         'btnSeleccionar
         '
-        Me.btnSeleccionar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSeleccionar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnSeleccionar.Location = New System.Drawing.Point(12, 416)
         Me.btnSeleccionar.Name = "btnSeleccionar"
         Me.btnSeleccionar.Size = New System.Drawing.Size(237, 23)
@@ -100,23 +100,34 @@ Partial Class lstActores
         Me.btnSeleccionar.Text = "Seleccionar"
         Me.btnSeleccionar.UseVisualStyleBackColor = True
         '
+        'txtBusqueda
+        '
+        Me.txtBusqueda.Location = New System.Drawing.Point(12, 12)
+        Me.txtBusqueda.Name = "txtBusqueda"
+        Me.txtBusqueda.Size = New System.Drawing.Size(411, 20)
+        Me.txtBusqueda.TabIndex = 16
+        '
         'lstActores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(435, 446)
+        Me.Controls.Add(Me.txtBusqueda)
         Me.Controls.Add(Me.btnSeleccionar)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnBorrar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.dgvActores)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(451, 600)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(451, 485)
+        Me.MinimumSize = New System.Drawing.Size(451, 39)
         Me.Name = "lstActores"
-        Me.Text = "lstActores"
+        Me.Text = "Actores/Actrices"
         CType(Me.dgvActores, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents btnSalir As System.Windows.Forms.Button
@@ -125,4 +136,5 @@ Partial Class lstActores
     Friend WithEvents btnAgregar As System.Windows.Forms.Button
     Friend WithEvents dgvActores As System.Windows.Forms.DataGridView
     Friend WithEvents btnSeleccionar As System.Windows.Forms.Button
+    Friend WithEvents txtBusqueda As System.Windows.Forms.TextBox
 End Class
