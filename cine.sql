@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 08-09-2021 a las 14:32:10
+-- Tiempo de generación: 14-10-2021 a las 20:40:32
 -- Versión del servidor: 5.7.21
 -- Versión de PHP: 5.6.35
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `actores` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `actores`
@@ -66,7 +66,10 @@ INSERT INTO `actores` (`id`, `nombre`) VALUES
 (24, 'Berénice Bejo'),
 (25, 'Colin Firth'),
 (26, 'Geoffrey Rush'),
-(27, 'Helena Bonham Carter');
+(27, 'Helena Bonham Carter'),
+(28, 'Frances McDormand'),
+(29, 'David Strathairn'),
+(30, 'Linda May');
 
 -- --------------------------------------------------------
 
@@ -81,8 +84,9 @@ CREATE TABLE IF NOT EXISTS `actorespelicula` (
   `idpelicula` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idactor` (`idactor`),
-  KEY `idpelicula` (`idpelicula`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+  KEY `idpelicula` (`idpelicula`),
+  KEY `idactor_2` (`idactor`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `actorespelicula`
@@ -118,7 +122,10 @@ INSERT INTO `actorespelicula` (`id`, `idactor`, `idpelicula`) VALUES
 (33, 22, 12),
 (34, 25, 13),
 (35, 26, 13),
-(36, 27, 13);
+(36, 27, 13),
+(37, 28, 14),
+(38, 29, 14),
+(39, 30, 14);
 
 -- --------------------------------------------------------
 
@@ -155,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `directores` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `directores`
@@ -171,7 +178,8 @@ INSERT INTO `directores` (`id`, `nombre`) VALUES
 (7, 'Steve McQueen'),
 (8, 'Ben Affleck'),
 (9, 'Tom Hopper'),
-(10, 'Michel Hazanavicius');
+(10, 'Michel Hazanavicius'),
+(11, 'Chloé Zhao');
 
 -- --------------------------------------------------------
 
@@ -184,30 +192,57 @@ CREATE TABLE IF NOT EXISTS `peliculas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(30) NOT NULL,
   `anio` int(11) NOT NULL,
-  `duracion` decimal(10,0) NOT NULL,
+  `duracion` int(11) NOT NULL,
   `idDirector` int(11) NOT NULL,
-  `IMDB` decimal(10,0) NOT NULL,
+  `IMDB` decimal(10,2) NOT NULL,
   `idCategoria` int(11) NOT NULL,
+  `caratula` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `idCategoria` (`idCategoria`),
-  KEY `idDirector` (`idDirector`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+  KEY `idDirector` (`idDirector`),
+  KEY `idCategoria` (`idCategoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `peliculas`
 --
 
-INSERT INTO `peliculas` (`id`, `nombre`, `anio`, `duracion`, `idDirector`, `IMDB`, `idCategoria`) VALUES
-(1, 'Parasite', 2019, '132', 1, '9', 3),
-(2, 'Green Book', 2018, '130', 2, '8', 2),
-(4, 'La forma del agua', 2017, '123', 3, '7', 3),
-(5, 'Moonlight', 2016, '111', 4, '7', 1),
-(8, 'Spotlight', 2015, '139', 5, '8', 2),
-(9, 'Birdman', 2014, '119', 6, '8', 4),
-(10, '12 años de esclavitud', 2013, '134', 7, '8', 2),
-(11, 'Argo', 2012, '120', 8, '8', 1),
-(12, 'El Artista', 2011, '100', 10, '8', 4),
-(13, 'El discurso del rey', 2010, '118', 9, '8', 1);
+INSERT INTO `peliculas` (`id`, `nombre`, `anio`, `duracion`, `idDirector`, `IMDB`, `idCategoria`, `caratula`) VALUES
+(1, 'Parasite', 2019, 132, 1, '8.60', 3, 'parasite.jpg'),
+(2, 'Green Book', 2018, 130, 2, '8.20', 2, 'greenbook.jpg'),
+(4, 'La forma del agua', 2017, 123, 3, '7.30', 3, 'laformadelagua.jpg'),
+(5, 'Moonlight', 2016, 111, 4, '7.40', 1, 'moonlight.jpg'),
+(8, 'Spotlight', 2015, 139, 5, '8.10', 2, 'spotlight.jpg'),
+(9, 'Birdman', 2014, 119, 6, '7.70', 4, 'birdman.jpg'),
+(10, '12 años de esclavitud', 2013, 134, 7, '8.10', 2, '12aniosesclavitud.jpg'),
+(11, 'Argo', 2012, 120, 8, '7.70', 1, 'argo.jpg'),
+(12, 'El Artista', 2011, 100, 10, '7.90', 4, 'theartist.jpg'),
+(13, 'El discurso del rey', 2010, 118, 9, '8.00', 1, 'eldiscursodelrey.jpg'),
+(14, 'Nomadland', 2020, 107, 11, '7.40', 1, 'Nomadland.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(8) NOT NULL,
+  `clave` varchar(32) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `usuario`, `clave`, `nombre`, `email`) VALUES
+(4, 'david', '80d01b9b48225f2666a6f68f324cd1b9', 'Sklar David', 'sklar@gmail.com'),
+(5, 'adam', '1d7c2923c1684726dc23d2901c4d8157', 'Trachtemberg Adam', 'adam@gmail.com'),
+(14, 'luis', '2db95e8e1a9267b7a1188556b2013b33', 'Tettamanti Luis Eduardo', 'ltettamanti@hotmail.com');
 
 --
 -- Restricciones para tablas volcadas
@@ -224,8 +259,8 @@ ALTER TABLE `actorespelicula`
 -- Filtros para la tabla `peliculas`
 --
 ALTER TABLE `peliculas`
-  ADD CONSTRAINT `peliculas_ibfk_1` FOREIGN KEY (`idCategoria`) REFERENCES `categorias` (`id`),
-  ADD CONSTRAINT `peliculas_ibfk_2` FOREIGN KEY (`idDirector`) REFERENCES `directores` (`id`);
+  ADD CONSTRAINT `peliculas_ibfk_2` FOREIGN KEY (`idDirector`) REFERENCES `directores` (`id`),
+  ADD CONSTRAINT `peliculas_ibfk_3` FOREIGN KEY (`idCategoria`) REFERENCES `categorias` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
