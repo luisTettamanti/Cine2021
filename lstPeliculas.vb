@@ -25,6 +25,7 @@
         pelicula.idDirector = dgvPeliculas.Item("idDirector", dgvPeliculas.CurrentRow.Index).Value
         pelicula.IMDB = dgvPeliculas.Item("IMDB", dgvPeliculas.CurrentRow.Index).Value
         pelicula.idCategoria = dgvPeliculas.Item("idCategoria", dgvPeliculas.CurrentRow.Index).Value
+        pelicula.caratula = dgvPeliculas.Item("caratula", dgvPeliculas.CurrentRow.Index).Value
 
         Dim frmPeliculas As New frmPeliculas
         frmPeliculas.modo = "Modificar"

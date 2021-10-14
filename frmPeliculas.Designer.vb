@@ -22,7 +22,7 @@ Partial Class frmPeliculas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Me.txtId = New System.Windows.Forms.TextBox
         Me.txtNombre = New System.Windows.Forms.TextBox
         Me.txtDuracion = New System.Windows.Forms.TextBox
@@ -43,7 +43,10 @@ Partial Class frmPeliculas
         Me.btnAgregarActor = New System.Windows.Forms.Button
         Me.btnBorrarActor = New System.Windows.Forms.Button
         Me.dgvActores = New System.Windows.Forms.DataGridView
+        Me.pcbPelicula = New System.Windows.Forms.PictureBox
+        Me.btnCargarImagen = New System.Windows.Forms.Button
         CType(Me.dgvActores, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pcbPelicula, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtId
@@ -142,7 +145,7 @@ Partial Class frmPeliculas
         'btnAceptar
         '
         Me.btnAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnAceptar.Location = New System.Drawing.Point(156, 315)
+        Me.btnAceptar.Location = New System.Drawing.Point(148, 315)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(75, 23)
         Me.btnAceptar.TabIndex = 16
@@ -152,7 +155,7 @@ Partial Class frmPeliculas
         'btnCancelar
         '
         Me.btnCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnCancelar.Location = New System.Drawing.Point(237, 315)
+        Me.btnCancelar.Location = New System.Drawing.Point(229, 315)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
         Me.btnCancelar.TabIndex = 17
@@ -194,18 +197,20 @@ Partial Class frmPeliculas
         '
         'btnAgregarActor
         '
-        Me.btnAgregarActor.Location = New System.Drawing.Point(380, 195)
+        Me.btnAgregarActor.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnAgregarActor.Location = New System.Drawing.Point(12, 245)
         Me.btnAgregarActor.Name = "btnAgregarActor"
-        Me.btnAgregarActor.Size = New System.Drawing.Size(77, 23)
+        Me.btnAgregarActor.Size = New System.Drawing.Size(63, 23)
         Me.btnAgregarActor.TabIndex = 22
         Me.btnAgregarActor.Text = "Agregar"
         Me.btnAgregarActor.UseVisualStyleBackColor = True
         '
         'btnBorrarActor
         '
-        Me.btnBorrarActor.Location = New System.Drawing.Point(381, 224)
+        Me.btnBorrarActor.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnBorrarActor.Location = New System.Drawing.Point(12, 275)
         Me.btnBorrarActor.Name = "btnBorrarActor"
-        Me.btnBorrarActor.Size = New System.Drawing.Size(77, 23)
+        Me.btnBorrarActor.Size = New System.Drawing.Size(61, 23)
         Me.btnBorrarActor.TabIndex = 23
         Me.btnBorrarActor.Text = "Borrar"
         Me.btnBorrarActor.UseVisualStyleBackColor = True
@@ -213,12 +218,12 @@ Partial Class frmPeliculas
         'dgvActores
         '
         Me.dgvActores.AllowUserToAddRows = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.dgvActores.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.dgvActores.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvActores.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dgvActores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvActores.Location = New System.Drawing.Point(79, 195)
+        Me.dgvActores.Location = New System.Drawing.Point(81, 195)
         Me.dgvActores.Name = "dgvActores"
         Me.dgvActores.ReadOnly = True
         Me.dgvActores.RowHeadersVisible = False
@@ -226,11 +231,31 @@ Partial Class frmPeliculas
         Me.dgvActores.Size = New System.Drawing.Size(296, 103)
         Me.dgvActores.TabIndex = 24
         '
+        'pcbPelicula
+        '
+        Me.pcbPelicula.Location = New System.Drawing.Point(383, 12)
+        Me.pcbPelicula.Name = "pcbPelicula"
+        Me.pcbPelicula.Size = New System.Drawing.Size(242, 286)
+        Me.pcbPelicula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.pcbPelicula.TabIndex = 25
+        Me.pcbPelicula.TabStop = False
+        '
+        'btnCargarImagen
+        '
+        Me.btnCargarImagen.Location = New System.Drawing.Point(383, 315)
+        Me.btnCargarImagen.Name = "btnCargarImagen"
+        Me.btnCargarImagen.Size = New System.Drawing.Size(242, 23)
+        Me.btnCargarImagen.TabIndex = 26
+        Me.btnCargarImagen.Text = "Cargar imagen"
+        Me.btnCargarImagen.UseVisualStyleBackColor = True
+        '
         'frmPeliculas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(469, 350)
+        Me.ClientSize = New System.Drawing.Size(637, 349)
+        Me.Controls.Add(Me.btnCargarImagen)
+        Me.Controls.Add(Me.pcbPelicula)
         Me.Controls.Add(Me.dgvActores)
         Me.Controls.Add(Me.btnBorrarActor)
         Me.Controls.Add(Me.btnAgregarActor)
@@ -252,12 +277,13 @@ Partial Class frmPeliculas
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.txtId)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(485, 600)
+        Me.MaximumSize = New System.Drawing.Size(653, 747)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(485, 389)
+        Me.MinimumSize = New System.Drawing.Size(653, 388)
         Me.Name = "frmPeliculas"
         Me.Text = "Peliculas"
         CType(Me.dgvActores, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pcbPelicula, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -282,4 +308,6 @@ Partial Class frmPeliculas
     Friend WithEvents btnAgregarActor As System.Windows.Forms.Button
     Friend WithEvents btnBorrarActor As System.Windows.Forms.Button
     Friend WithEvents dgvActores As System.Windows.Forms.DataGridView
+    Friend WithEvents pcbPelicula As System.Windows.Forms.PictureBox
+    Friend WithEvents btnCargarImagen As System.Windows.Forms.Button
 End Class

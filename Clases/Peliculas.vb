@@ -11,6 +11,7 @@ Public Class Peliculas
     Private idDirector_ As Integer
     Private IMDB_ As Decimal
     Private idCategoria_ As Integer
+    Private caratula_ As String
 
     Public Property id() As Integer
         Get
@@ -84,9 +85,18 @@ Public Class Peliculas
         End Set
     End Property
 
+    Public Property caratula() As String
+        Get
+            Return caratula_
+        End Get
+        Set(ByVal value As String)
+            caratula_ = value
+        End Set
+    End Property
+
     Public Sub Mostrar(ByVal grilla As DataGridView)
         Abrir()
-        Dim strComando As String = "SELECT p.id, p.anio, p.duracion, p.idCategoria, p.idDirector, p.IMDB, p.nombre, c.nombre categoria, d.nombre director " & _
+        Dim strComando As String = "SELECT p.id, p.anio, p.duracion, p.idCategoria, p.idDirector, p.IMDB, p.nombre, c.nombre categoria, d.nombre director, p.caratula " & _
         "FROM peliculas p " & _
         "INNER JOIN categorias c ON c.id=p.idCategoria " & _
         "INNER JOIN directores d ON d.id=p.idDirector"
@@ -98,6 +108,7 @@ Public Class Peliculas
         grilla.Columns("idCategoria").Visible = False
         grilla.Columns("idDirector").Visible = False
         grilla.Columns("IMDB").Visible = False
+        grilla.Columns("caratula").Visible = False
         grilla.Columns("id").Width = 50
         grilla.Columns("anio").Width = 50
         grilla.Columns("nombre").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
@@ -107,7 +118,7 @@ Public Class Peliculas
 
     Public Sub Mostrar(ByVal grilla As DataGridView, ByVal busqueda As String)
         Abrir()
-        Dim strComando As String = "SELECT p.id, p.anio, p.duracion, p.idCategoria, p.idDirector, p.IMDB, p.nombre, c.nombre categoria, d.nombre director " & _
+        Dim strComando As String = "SELECT p.id, p.anio, p.duracion, p.idCategoria, p.idDirector, p.IMDB, p.nombre, c.nombre categoria, d.nombre director, p.caratula " & _
         "FROM peliculas p " & _
         "INNER JOIN categorias c ON c.id=p.idCategoria " & _
         "INNER JOIN directores d ON d.id=p.idDirector " & _
@@ -121,6 +132,7 @@ Public Class Peliculas
         grilla.Columns("idCategoria").Visible = False
         grilla.Columns("idDirector").Visible = False
         grilla.Columns("IMDB").Visible = False
+        grilla.Columns("caratula").Visible = False
         grilla.Columns("id").Width = 50
         grilla.Columns("anio").Width = 50
         grilla.Columns("nombre").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
@@ -139,7 +151,7 @@ Public Class Peliculas
 
         'Comando Insertar utilizando parámetros
         'No se tiene en cuenta la clave id porque se definió como autonumérica
-        Dim strComando As String = "INSERT INTO peliculas (nombre, anio, duracion, idDirector, IMDB, idCategoria) VALUES (@nombre, @anio, @duracion, @categoria, @idDirector, @IMDB, @idCategoria)"
+        Dim strComando As String = "INSERT INTO peliculas (nombre, anio, duracion, idDirector, IMDB, idCategoria, caratula) VALUES (@nombre, @anio, @duracion, @idDirector, @IMDB, @idCategoria, @caratula)"
         Dim mysqlComando As New MySqlCommand(strComando, conexion)
         mysqlComando.Parameters.AddWithValue("@nombre", pelicula.nombre)
         mysqlComando.Parameters.AddWithValue("@anio", pelicula.anio)
@@ -147,14 +159,14 @@ Public Class Peliculas
         mysqlComando.Parameters.AddWithValue("@idDirector", pelicula.idDirector)
         mysqlComando.Parameters.AddWithValue("@IMDB", pelicula.IMDB)
         mysqlComando.Parameters.AddWithValue("@idCategoria", pelicula.idCategoria)
-
+        mysqlComando.Parameters.AddWithValue("@caratula", pelicula.caratula)
         mysqlComando.ExecuteNonQuery()
         Cerrar()
     End Sub
 
     Public Sub Modificar(ByVal pelicula As Peliculas)
         Abrir()
-        Dim strComando As String = "UPDATE peliculas SET nombre=@nombre, anio=@anio, duracion=@duracion, idDirector=@idDirector, IMDB=@IMDB, idCategoria=@idCategoria WHERE id=@id"
+        Dim strComando As String = "UPDATE peliculas SET nombre=@nombre, anio=@anio, duracion=@duracion, idDirector=@idDirector, IMDB=@IMDB, idCategoria=@idCategoria, caratula=@caratula WHERE id=@id"
         Dim mysqlComando As New MySqlCommand(strComando, conexion)
         mysqlComando.Parameters.AddWithValue("@id", pelicula.id)
         mysqlComando.Parameters.AddWithValue("@nombre", pelicula.nombre)
@@ -163,7 +175,7 @@ Public Class Peliculas
         mysqlComando.Parameters.AddWithValue("@idDirector", pelicula.idDirector)
         mysqlComando.Parameters.AddWithValue("@IMDB", pelicula.IMDB)
         mysqlComando.Parameters.AddWithValue("@idCategoria", pelicula.idCategoria)
-
+        mysqlComando.Parameters.AddWithValue("@caratula", pelicula.caratula)
         mysqlComando.ExecuteNonQuery()
         Cerrar()
     End Sub
