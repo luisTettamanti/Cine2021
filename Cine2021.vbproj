@@ -69,6 +69,8 @@
   <ItemGroup>
     <Compile Include="Clases\Actores.vb" />
     <Compile Include="Clases\ActoresPelicula.vb" />
+    <Compile Include="Clases\Reservas.vb" />
+    <Compile Include="Clases\ResEstados.vb" />
     <Compile Include="frmActores.Designer.vb">
       <DependentUpon>frmActores.vb</DependentUpon>
     </Compile>
@@ -96,6 +98,12 @@
     <Compile Include="frmPeliculas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmResDetalle.Designer.vb">
+      <DependentUpon>frmResDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmResDetalle.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="lstActores.Designer.vb">
       <DependentUpon>lstActores.vb</DependentUpon>
     </Compile>
@@ -121,6 +129,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clases\Peliculas.vb" />
+    <Compile Include="lstReservas.Designer.vb">
+      <DependentUpon>lstReservas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="lstReservas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="principal.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +171,9 @@
     <EmbeddedResource Include="frmPeliculas.resx">
       <DependentUpon>frmPeliculas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmResDetalle.resx">
+      <DependentUpon>frmResDetalle.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="lstActores.resx">
       <DependentUpon>lstActores.vb</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="lstPeliculas.resx">
       <DependentUpon>lstPeliculas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lstReservas.resx">
+      <DependentUpon>lstReservas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.vb</DependentUpon>

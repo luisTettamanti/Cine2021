@@ -17,3 +17,5 @@ C:\Users\ltett\OneDrive\Documentos\Visual Studio 2008\Projects\Cine2021\Cine2021
 C:\Users\ltett\OneDrive\Documentos\Visual Studio 2008\Projects\Cine2021\Cine2021\obj\Debug\Cine2021.lstDirectores.resources
 C:\Users\ltett\OneDrive\Documentos\Visual Studio 2008\Projects\Cine2021\Cine2021\obj\Debug\Cine2021.frmActores.resources
 C:\Users\ltett\OneDrive\Documentos\Visual Studio 2008\Projects\Cine2021\Cine2021\obj\Debug\Cine2021.lstActores.resources
+C:\Users\ltett\OneDrive\Documentos\Visual Studio 2008\Projects\Cine2021\Cine2021\obj\Debug\Cine2021.lstReservas.resources
+C:\Users\ltett\OneDrive\Documentos\Visual Studio 2008\Projects\Cine2021\Cine2021\obj\Debug\Cine2021.frmResDetalle.resources

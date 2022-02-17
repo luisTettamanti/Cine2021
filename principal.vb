@@ -17,4 +17,8 @@
         lstActores.esBusqueda = False
         lstActores.ShowDialog()
     End Sub
+
+    Private Sub ReservasToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReservasToolStripMenuItem.Click
+        lstReservas.ShowDialog()
+    End Sub
 End Class
